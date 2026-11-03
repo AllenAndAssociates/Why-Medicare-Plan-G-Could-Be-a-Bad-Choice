@@ -1,23 +1,18 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plan G 2027 Blueprint</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<!doctype html><html><head><meta charset="utf-8">
 <style>
+@font-face{font-family:Inter;font-weight:400;src:url(file:///usr/share/fonts/opentype/inter/Inter-Medium.otf)}
+@font-face{font-family:Inter;font-weight:600;src:url(file:///usr/share/fonts/opentype/inter/Inter-SemiBold.otf)}
+@font-face{font-family:Inter;font-weight:800;src:url(file:///usr/share/fonts/opentype/inter/Inter-ExtraBold.otf)}
+@font-face{font-family:Inter;font-weight:900;src:url(file:///usr/share/fonts/opentype/inter/Inter-Black.otf)}
 :root{--green:#00B140;--canvas:#F9FAF8;--navy:#0A2540;--slate:#0B192C;--amber:#F5A623;--red:#E5484D;--blue:#3B82F6}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#000;font-family:Inter,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;color:#fff}
-#wrap{width:100vw;max-width:calc(100vh*16/9 - 60px);aspect-ratio:16/9;position:relative;overflow:hidden}
-#stage{width:1920px;height:1080px;position:absolute;top:0;left:0;transform-origin:0 0;background:var(--slate);overflow:hidden}
-#avatar{position:absolute;top:0;left:0;width:1920px;height:1080px;object-fit:cover;transition:all .8s cubic-bezier(.7,0,.2,1);z-index:2;background:#222}
-.split #avatar{width:960px}
-#divider{position:absolute;left:959px;top:0;width:2px;height:1080px;background:var(--green);opacity:0;transition:opacity .5s;z-index:3}
-.split #divider{opacity:1}
-#right{position:absolute;left:961px;top:0;width:959px;height:1080px;background:var(--canvas);color:var(--navy);padding:150px 80px 140px;display:flex;flex-direction:column;justify-content:center;gap:28px;transform:translateX(100%);transition:transform .8s cubic-bezier(.7,0,.2,1);z-index:1}
-.split #right{transform:none}
-#full{position:absolute;inset:0;z-index:4;padding:150px 120px 140px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:40px;opacity:0;pointer-events:none;transition:opacity .5s;
-background:var(--slate) linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/60px 60px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/60px 60px;background-color:var(--slate)}
-.fullmode #full{opacity:1}
-#badge{position:absolute;top:44px;left:44px;z-index:10;background:var(--navy);color:#fff;border:2px solid var(--green);border-radius:999px;padding:14px 30px;font-weight:800;font-size:28px;transition:opacity .4s}
+html,body{background:transparent;width:1920px;height:1080px;overflow:hidden;font-family:Inter,sans-serif;color:#fff}
+#stage{width:1920px;height:1080px;position:relative;overflow:hidden}
+#divider{position:absolute;left:959px;top:0;width:2px;height:1080px;background:var(--green);z-index:3}
+#right{position:absolute;left:961px;top:0;width:959px;height:1080px;background:var(--canvas);color:var(--navy);padding:150px 80px 140px;display:flex;flex-direction:column;justify-content:center;gap:28px;z-index:1}
+#full{position:absolute;inset:0;z-index:4;padding:150px 120px 140px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:40px;
+background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/60px 60px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/60px 60px,var(--slate)}
+#badge{position:absolute;top:44px;left:44px;z-index:10;background:var(--navy);color:#fff;border:2px solid var(--green);border-radius:999px;padding:14px 30px;font-weight:800;font-size:28px}
 #badge b{color:var(--green)}
 #bar{position:absolute;bottom:0;left:0;right:0;height:72px;z-index:10;background:var(--navy);display:flex;align-items:center;padding-left:44px;font-weight:800;letter-spacing:.12em;font-size:24px;border-top:3px solid var(--green)}
 #bar span{color:var(--green);margin:0 14px}
@@ -26,6 +21,7 @@ background:var(--slate) linear-gradient(rgba(255,255,255,.05) 1px,transparent 1p
 h1{font-size:96px;font-weight:900;line-height:1;letter-spacing:-.02em}h2{font-size:64px;font-weight:900;line-height:1.05}h3{font-size:40px;font-weight:800}
 p,.li{font-size:38px;font-weight:600;line-height:1.3}
 .tag{display:inline-block;align-self:flex-start;padding:10px 24px;border-radius:8px;font-weight:900;font-size:32px;letter-spacing:.08em}
+#full .tag{align-self:center}#full h1,#full h2,#full h3,#full p{text-align:center}
 .amber{background:var(--amber);color:var(--navy)}.gbg{background:var(--green);color:#fff}.rbg{background:var(--red);color:#fff}
 .card{background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 10px 40px rgba(10,37,64,.12);border-left:10px solid var(--green)}
 .dcard{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.15);border-radius:20px;padding:40px;text-align:center}
@@ -38,32 +34,30 @@ svg text{font-family:Inter}
 .draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2s .3s forwards}@keyframes draw{to{stroke-dashoffset:0}}
 .grow{transform-origin:left;animation:grow 1.4s .4s both}@keyframes grow{from{transform:scaleX(0)}}
 .growy{transform-box:fill-box;transform-origin:bottom;animation:gy 1.4s .4s both}@keyframes gy{from{transform:scaleY(0)}}
+@keyframes donut{to{stroke-dashoffset:40}}
 .st{display:inline-block;padding:16px 26px;border-radius:12px;background:var(--green);font-size:44px;font-weight:900;margin:8px}
-#ctrl{display:flex;gap:12px;align-items:center;padding:10px;font-size:14px}#ctrl button{padding:6px 14px;font-weight:700;cursor:pointer}
-#outro{position:absolute;inset:0;z-index:20;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;opacity:0;pointer-events:none;transition:opacity .8s;text-align:center}
-.outro #outro{opacity:1}
-</style></head><body>
-<div id="wrap"><div id="stage">
-<video id="avatar" src="../Avatar Video_1080p.mp4" playsinline preload="auto"></video>
+#outro{position:absolute;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 35%,#163a66 0%,#0A2540 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;text-align:center}
+#outro .plate{background:#fff;border-radius:22px;padding:22px 34px}
+</style></head><body><div id="stage">
 <div id="divider"></div><div id="right"></div><div id="full"></div>
 <div id="outro">
- <div class="tag amber">FREE 2027 MEDIGAP RATE COMPARISON GUIDE</div>
- <h1 style="font-size:110px">💬 Comment <span class="g">"GUIDE"</span> Below</h1>
- <h3>ALLEN &amp; ASSOCIATES INSURANCE AGENCY — MAKING MEDICARE EASY</h3>
- <p style="font-size:48px">📞 800-324-9986 &nbsp;|&nbsp; 🌐 allenandassociates.agency</p>
- <p style="position:absolute;bottom:40px;font-size:22px;opacity:.7;font-weight:400">Not affiliated with or endorsed by the U.S. government or the federal Medicare program.</p>
+ <div class="plate"><img src="assets/allen-associates-logo.png" style="width:577px;display:block"></div>
+ <div class="tag amber" style="align-self:center">FREE 2027 MEDIGAP RATE COMPARISON GUIDE</div>
+ <h1 style="font-size:104px">💬 Comment <span class="g">"GUIDE"</span> Below</h1>
+ <h3>ALLEN &amp; ASSOCIATES INSURANCE AGENCY</h3>
+ <p style="font-size:50px;font-weight:800">📞 800-324-9986 &nbsp;|&nbsp; 🌐 allenandassociates.agency</p>
+ <p style="position:absolute;bottom:34px;font-size:22px;opacity:.75;font-weight:400">Not affiliated with or endorsed by the U.S. government or the federal Medicare program.</p>
 </div>
 <div id="badge"></div>
 <div id="bar">ALLEN &amp; ASSOCIATES<span>|</span>MAKING MEDICARE EASY</div>
-</div></div>
-<div id="ctrl"><button id="play">▶ Play</button><button id="restart">⟲ Restart</button><span id="tc">0:00 · Shot 1</span></div>
+</div>
 <script>
 const B1='1 | The Plan F History',B1b='1 | The Lesson of Plan F',B2='2 | The Plan G Trap',B3='3 | Smarter Option #1: Plan N',B4='4 | Smarter Option #2: High-Deductible Plan G';
 const funnel=(from,to,col)=>`<div class="row"><div class="dcard" style="width:560px"><h3>Guaranteed Issue Enrollees</h3><p class="a">Zero Medical Underwriting</p></div><div class="arrow">➔</div>${from?`<div class="dcard" style="width:440px;opacity:.45;text-decoration:line-through"><h3>${from}</h3></div><div class="arrow">➔</div>`:''}<div class="dcard" style="width:520px;border-color:${col};background:${col}22"><h2 style="color:${col}">${to}</h2></div></div>`;
 const S=[
-{t:0,m:'split',delay:1.5,b:B1,h:`<div class="tag amber">MEDIGAP 2027</div><h1>Never Buy Plan G Until You Know This.</h1>`},
+{t:0,m:'split',b:B1,h:`<div class="tag amber">MEDIGAP 2027</div><h1>Never Buy Plan G Until You Know This.</h1>`},
 {t:10,m:'split',b:B1,h:`<h3>Plan G Rate Trajectory vs. Smarter 2027 Alternatives</h3><svg viewBox="0 0 800 460" width="800"><line x1="40" y1="420" x2="780" y2="420" stroke="#0A2540" stroke-width="3"/><line x1="40" y1="20" x2="40" y2="420" stroke="#0A2540" stroke-width="3"/><path class="draw" d="M40 400 C300 380 500 300 760 40" fill="none" stroke="#E5484D" stroke-width="10"/><path class="draw" d="M40 400 L760 320" fill="none" stroke="#00B140" stroke-width="8"/><path class="draw" d="M40 410 L760 350" fill="none" stroke="#00B140" stroke-width="8" stroke-dasharray="1400"/><text x="440" y="90" fill="#E5484D" font-size="30" font-weight="800">Plan G Rate Trajectory</text><text x="300" y="300" fill="#00B140" font-size="28" font-weight="800">Smarter 2027 Alternatives</text></svg>`},
-{t:20,m:'split',b:B1,h:`<div class="card"><h1>ARRIC ALLEN</h1><p style="margin-top:18px" class="g">Licensed Specialist Since 1994</p><h3 style="margin-top:14px">Allen &amp; Associates Insurance Agency</h3></div>`},
+{t:20,m:'split',b:B1,h:`<div class="card" style="text-align:left"><img src="assets/allen-associates-logo.png" style="width:520px;display:block;margin-bottom:26px"><h1>ARRIC ALLEN</h1><p style="margin-top:18px" class="g">Licensed Specialist Since 1994</p><h3 style="margin-top:14px">Allen &amp; Associates Insurance Agency</h3></div>`},
 {t:30,m:'split',b:B1,h:`<div class="card"><div class="tag gbg">PAST</div><h2 style="margin-top:16px">Plan G = #1 Value</h2></div><div class="arrow" style="text-align:center">⬇</div><div class="card" style="border-color:var(--amber)"><div class="tag amber">⚠ 2027</div><h2 style="margin-top:16px">Risk Pool Overloaded</h2></div>`},
 {t:40,m:'split',b:B1b,h:`<div class="tag amber">HISTORY</div><h1>2015–2020: The Rise &amp; Fall of Plan F</h1>`},
 {t:50,m:'split',b:B1b,h:`<h3>MEDICARE PLAN F<br><span style="font-weight:600">(The Old "Cadillac" Plan)</span></h3><div class="big g">100%</div><div class="tag gbg">COVERED</div>`},
@@ -87,22 +81,27 @@ const S=[
 {t:230,m:'split',b:B4,h:`<h2>HIGH-DEDUCTIBLE PLAN G (GHD)</h2><div class="big g" style="font-size:150px">~$3,000</div><h3>Annual Out-of-Pocket Maximum</h3>`},
 {t:240,m:'split',b:B4,h:`<h3>How a Medical Claim Gets Paid</h3><div style="display:flex;height:120px;border-radius:14px;overflow:hidden"><div class="grow" style="flex:80;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900">80%</div><div class="grow" style="flex:20;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;animation-delay:1.2s">20%</div></div><p><b class="bl">80%</b> Paid Immediately by Original Medicare</p><p><b class="g">You Only Pay the 20% Share</b> Capped at ~$3,000</p>`},
 {t:250,m:'full',b:B4,h:`<div class="tag amber">THE 10% RATE HIKE MATH</div><div class="row"><div class="dcard" style="width:720px;border-color:var(--red)"><h3>Standard Plan G ($220/mo)</h3><p style="margin-top:20px">10% hike =</p><div class="big r" style="font-size:130px">+$22<span style="font-size:50px">/mo</span></div></div><div class="dcard" style="width:720px;border-color:var(--green)"><h3>High-Deductible G ($65/mo)</h3><p style="margin-top:20px">10% hike =</p><div class="big g" style="font-size:130px">+$6.50<span style="font-size:50px">/mo</span></div></div></div>`},
-{t:260,m:'split',b:B4,outro:265,h:`<div class="tag amber">FREE 2027 MEDIGAP RATE COMPARISON GUIDE</div><h1>💬 Comment "GUIDE" Below</h1><p>🌐 allenandassociates.agency</p>`},
+{t:260,m:'split',b:B4,outro:4.2,h:`<div class="tag amber">FREE 2027 MEDIGAP RATE COMPARISON GUIDE</div><h1>💬 Comment "GUIDE" Below</h1><p>🌐 allenandassociates.agency</p>`},
 ];
-const END=270,st=document.getElementById('stage'),v=document.getElementById('avatar'),R=document.getElementById('right'),F=document.getElementById('full'),bd=document.getElementById('badge'),tc=document.getElementById('tc');
-const fit=()=>st.style.transform=`scale(${document.getElementById('wrap').clientWidth/1920})`;addEventListener('resize',fit);fit();
-let cur=-1,clock=0,last=null,playing=false,useVid=true;
-v.onerror=()=>useVid=false;
-function render(t){
- let i=Math.max(0,S.findLastIndex(s=>t>=s.t));const s=S[i];
- const mode=t<(s.delay||0)?'':s.m;
- st.classList.toggle('split',mode==='split');st.classList.toggle('fullmode',mode==='full');st.classList.toggle('outro',!!s.outro&&t>=s.outro);
- if(i!==cur){cur=i;bd.innerHTML=s.b.replace(/^(\d+)/,'<b>$1</b>');const tgt=s.m==='full'?F:R;tgt.className='';tgt.innerHTML=s.h;void tgt.offsetWidth;tgt.className='in';}
- tc.textContent=`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')} · Shot ${i+1}/27`;
-}
-function tick(ts){if(playing){if(useVid&&v.readyState>1&&!v.paused)clock=v.currentTime;else{if(last!=null)clock+=(ts-last)/1000;}last=ts;if(clock>=END)playing=false;}render(Math.min(clock,END-.01));requestAnimationFrame(tick)}
-document.getElementById('play').onclick=e=>{playing=!playing;last=null;e.target.textContent=playing?'❚❚ Pause':'▶ Play';if(useVid){playing?v.play().catch(()=>useVid=false):v.pause()}};
-document.getElementById('restart').onclick=()=>{clock=0;cur=-1;v.currentTime=0};
-addEventListener('keydown',e=>{if(e.key==='ArrowRight'){clock=S[Math.min(cur+1,26)].t;v.currentTime=clock;}if(e.key==='ArrowLeft'){clock=S[Math.max(cur-1,0)].t;v.currentTime=clock;}});
-requestAnimationFrame(tick);
+const TIM=[0.16, 7.36, 12.22, 19.9, 26.16, 31.52, 39.14, 47.48, 54.94, 62.44, 70.98, 77.54, 84.58, 92.0, 100.46, 108.26, 116.46, 122.42, 130.42, 136.98, 144.1, 151.86, 162.18, 170.16, 177.28, 184.1, 192.08];S.forEach((s,i)=>s.t=TIM[i]);
+const INTRO=1.5,SLIDE=0.8,FADE=0.4;
+const $=id=>document.getElementById(id);
+const ease=p=>p<=0?0:p>=1?1:p*p*(3-2*p);
+let rIdx=-1,fIdx=-1,rT=0,fT=0;
+function put(el,html,t){el.className='';el.innerHTML=html;void el.offsetWidth;el.className='in';return t;}
+function seek(el,dt){el.getAnimations({subtree:true}).forEach(a=>{a.pause();a.currentTime=Math.max(0,dt*1000);});}
+window.setT=function(t){
+  let i=0;for(let k=0;k<S.length;k++)if(t>=S[k].t)i=k;
+  const s=S[i],loc=t-s.t;
+  if(s.m==='split'&&rIdx!==i){rIdx=i;rT=put($('right'),s.h,s.t+(i===0?INTRO:0));}
+  if(s.m==='full'&&fIdx!==i){fIdx=i;fT=put($('full'),s.h,s.t);}
+  seek($('right'),t-rT);seek($('full'),t-fT);
+  const prevFull=i>0&&S[i-1].m==='full';
+  let fo=s.m==='full'?(prevFull?1:ease(loc/FADE)):(prevFull?1-ease(loc/FADE):0);
+  $('full').style.opacity=fo;
+  const p=ease((t-INTRO)/SLIDE);
+  $('right').style.transform=`translateX(${(1-p)*100}%)`;$('divider').style.opacity=p;
+  $('badge').innerHTML=s.b.replace(/^(\d+)/,'<b>$1</b>');
+  const oo=s.outro?ease((loc-s.outro)/0.6):0;$('outro').style.opacity=oo;
+};
 </script></body></html>
