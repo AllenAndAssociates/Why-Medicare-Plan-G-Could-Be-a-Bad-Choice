@@ -23,3 +23,26 @@ node render.js video.mp4
 python3 mix.py mix.wav
 ffmpeg -i video.mp4 -i mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest "../Why Medicare Plan G Could Be a Bad Choice for 2027 - Final.mp4"
 ```
+
+## 9:16 YouTube Shorts (`../shorts/`)
+
+Three Shorts cut from the same take, each ending on a "Watch the full video — tap the link below" card:
+
+| File | Script lines (shots) | Length |
+|---|---|---|
+| Short 1 - The Plan G Trap | 1, 10–14 | 0:50 |
+| Short 2 - Plan N The Smarter Option | 1, 16–21 | 0:56 |
+| Short 3 - High-Deductible Plan G | 1, 15, 24–26 | 0:42 |
+
+- `shorts.json` — which shots go in each Short; `shorts.js` — cut points (on word boundaries), timeline, captions.
+- `short.html` — vertical layout: data card on top, keyed speaker below on a navy canvas with a soft glow,
+  word-highlight captions kept above the Shorts bottom overlay zone, end card with the official logo.
+- `render_short.js <name> out.mp4` — video; `mix_short.py <name> out.wav` — audio (-14 LUFS).
+- Voice: on-camera lines are Arric's clone via speech-to-speech. The end-card line ("Want the full breakdown?
+  Tap the link below to watch the full video.", `audio/tts/cta_full_video.mp3`) is text-to-speech in the same
+  cloned voice and plays over the full-screen end card, with the speaker off-screen.
+- When uploading, set each Short's **Related video** to the full video so the "link below" works.
+
+```
+for n in plan-g-trap plan-n high-deductible-g; do node render_short.js $n v_$n.mp4; python3 mix_short.py $n a_$n.wav; done
+```

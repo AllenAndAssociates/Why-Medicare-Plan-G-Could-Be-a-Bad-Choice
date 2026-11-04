@@ -1,0 +1,120 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+
+@font-face{font-family:Inter;font-weight:400;src:url(file:///usr/share/fonts/opentype/inter/Inter-Medium.otf)}
+@font-face{font-family:Inter;font-weight:600;src:url(file:///usr/share/fonts/opentype/inter/Inter-SemiBold.otf)}
+@font-face{font-family:Inter;font-weight:800;src:url(file:///usr/share/fonts/opentype/inter/Inter-ExtraBold.otf)}
+@font-face{font-family:Inter;font-weight:900;src:url(file:///usr/share/fonts/opentype/inter/Inter-Black.otf)}
+:root{--green:#00B140;--canvas:#F9FAF8;--navy:#0A2540;--slate:#0B192C;--amber:#F5A623;--red:#E5484D;--blue:#3B82F6}
+*{box-sizing:border-box;margin:0;padding:0}
+.in>*{animation:up .6s both}.in>*:nth-child(2){animation-delay:.15s}.in>*:nth-child(3){animation-delay:.3s}.in>*:nth-child(4){animation-delay:.45s}.in>*:nth-child(5){animation-delay:.6s}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+h1{font-size:96px;font-weight:900;line-height:1;letter-spacing:-.02em}h2{font-size:64px;font-weight:900;line-height:1.05}h3{font-size:40px;font-weight:800}
+p,.li{font-size:38px;font-weight:600;line-height:1.3}
+.tag{display:inline-block;align-self:flex-start;padding:10px 24px;border-radius:8px;font-weight:900;font-size:32px;letter-spacing:.08em}
+#full .tag{align-self:center}#full h1,#full h2,#full h3,#full p{text-align:center}
+.amber{background:var(--amber);color:var(--navy)}.gbg{background:var(--green);color:#fff}.rbg{background:var(--red);color:#fff}
+.card{background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 10px 40px rgba(10,37,64,.12);border-left:10px solid var(--green)}
+.dcard{background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.15);border-radius:20px;padding:40px;text-align:center}
+.g{color:var(--green)}.r{color:var(--red)}.a{color:var(--amber)}.bl{color:var(--blue)}
+.row{display:flex;gap:40px;align-items:center;justify-content:center;width:100%}
+.pill{padding:22px 40px;border-radius:999px;background:var(--green);font-size:40px;font-weight:900}
+.arrow{font-size:80px;font-weight:900;color:var(--amber)}
+.big{font-size:180px;font-weight:900;line-height:1}
+svg text{font-family:Inter}
+.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2s .3s forwards}@keyframes draw{to{stroke-dashoffset:0}}
+.grow{transform-origin:left;animation:grow 1.4s .4s both}@keyframes grow{from{transform:scaleX(0)}}
+.growy{transform-box:fill-box;transform-origin:bottom;animation:gy 1.4s .4s both}@keyframes gy{from{transform:scaleY(0)}}
+@keyframes donut{to{stroke-dashoffset:40}}
+.st{display:inline-block;padding:16px 26px;border-radius:12px;background:var(--green);font-size:44px;font-weight:900;margin:8px}
+
+html,body{background:transparent;width:1080px;height:1920px;overflow:hidden;font-family:Inter,sans-serif;color:#fff}
+#stage{width:1080px;height:1920px;position:relative;overflow:hidden}
+#panel{position:absolute;left:40px;top:140px;width:1000px;height:860px;border-radius:28px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#right{position:absolute;inset:0;background:var(--canvas);color:var(--navy);padding:50px 56px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+#right .card{padding:28px 34px}
+#full{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/40px 40px,var(--slate);border:2px solid rgba(255,255,255,.12);border-radius:28px}
+#fullIn{position:absolute;left:0;top:0;width:1300px;height:1117px;transform:scale(.77);transform-origin:0 0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:44px;padding:60px}
+#fullIn .tag{align-self:center}#fullIn h1,#fullIn h2,#fullIn h3,#fullIn p{text-align:center}
+#fullIn .row{flex-direction:column;gap:22px}#fullIn .row .arrow{transform:rotate(90deg);line-height:1}#fullIn .row[style*="gap:200px"]{flex-direction:row;gap:140px}#fullIn .row[style*="gap:200px"] h3{width:520px}#fullIn .dcard{max-width:1240px}
+#badge{position:absolute;top:56px;left:40px;z-index:10;background:var(--navy);color:#fff;border:2px solid var(--green);border-radius:999px;padding:14px 28px;font-weight:800;font-size:30px}
+#badge b{color:var(--green)}
+#cap{position:absolute;left:40px;right:40px;top:1450px;z-index:9;text-align:center;font-weight:900;font-size:64px;line-height:1.1;color:#fff;
+ text-shadow:0 0 14px rgba(0,0,0,.65),0 4px 0 rgba(0,0,0,.55);-webkit-text-stroke:2px #0A2540;paint-order:stroke fill}
+#cap .on{color:#F5C542}
+#bar{position:absolute;bottom:0;left:0;right:0;height:80px;z-index:10;background:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;letter-spacing:.12em;font-size:26px;border-top:3px solid var(--green)}
+#bar span{color:var(--green);margin:0 14px}
+#cta{position:absolute;inset:0;z-index:20;background:radial-gradient(ellipse at 50% 35%,#163a66 0%,#0A2540 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;text-align:center;padding:0 70px}
+#cta .plate{background:#fff;border-radius:24px;padding:24px 36px}
+#cta .btn{background:var(--green);color:#fff;border-radius:28px;padding:36px 50px;font-size:72px;font-weight:900;box-shadow:0 18px 50px rgba(0,177,64,.45)}
+#cta .hand{font-size:120px;animation:bob 1s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-12px)}to{transform:translateY(16px)}}
+</style></head><body><div id="stage">
+<div id="badge"></div>
+<div id="panel"><div id="right"></div><div id="full"><div id="fullIn"></div></div></div>
+<div id="cap"></div>
+<div id="cta">
+ <div class="plate"><img src="assets/allen-associates-logo.png" style="width:560px;display:block"></div>
+ <h1 style="font-size:92px;line-height:1.05">Want the <span class="g">full breakdown?</span></h1>
+ <p style="font-size:46px;font-weight:700;color:#cfd9e6">Why Plan G could be a bad choice for 2027 &mdash; and the 2 smarter options</p>
+ <div class="btn">&#9654; WATCH THE FULL VIDEO</div>
+ <div class="hand">&#128071;</div>
+ <p style="font-size:48px;font-weight:900">Tap the link below</p>
+ <p style="font-size:38px;font-weight:700;color:#cfd9e6">&#128222; 800-324-9986 &nbsp;|&nbsp; allenandassociates.agency</p>
+ <p style="position:absolute;bottom:40px;left:60px;right:60px;font-size:22px;opacity:.7;font-weight:400">Not affiliated with or endorsed by the U.S. government or the federal Medicare program.</p>
+</div>
+<div id="bar">ALLEN &amp; ASSOCIATES<span>|</span>MAKING MEDICARE EASY</div>
+</div>
+<script>
+const B1='1 | The Plan F History',B1b='1 | The Lesson of Plan F',B2='2 | The Plan G Trap',B3='3 | Smarter Option #1: Plan N',B4='4 | Smarter Option #2: High-Deductible Plan G';
+const funnel=(from,to,col)=>`<div class="row"><div class="dcard" style="width:560px"><h3>Guaranteed Issue Enrollees</h3><p class="a">Zero Medical Underwriting</p></div><div class="arrow">➔</div>${from?`<div class="dcard" style="width:440px;opacity:.45;text-decoration:line-through"><h3>${from}</h3></div><div class="arrow">➔</div>`:''}<div class="dcard" style="width:520px;border-color:${col};background:${col}22"><h2 style="color:${col}">${to}</h2></div></div>`;
+const S=[
+{t:0,m:'split',b:B1,h:`<div class="tag amber">MEDIGAP 2027</div><h1>Never Buy Plan G Until You Know This.</h1>`},
+{t:10,m:'split',b:B1,h:`<h3>Plan G Rate Trajectory vs. Smarter 2027 Alternatives</h3><svg viewBox="0 0 800 460" width="800"><line x1="40" y1="420" x2="780" y2="420" stroke="#0A2540" stroke-width="3"/><line x1="40" y1="20" x2="40" y2="420" stroke="#0A2540" stroke-width="3"/><path class="draw" d="M40 400 C300 380 500 300 760 40" fill="none" stroke="#E5484D" stroke-width="10"/><path class="draw" d="M40 400 L760 320" fill="none" stroke="#00B140" stroke-width="8"/><path class="draw" d="M40 410 L760 350" fill="none" stroke="#00B140" stroke-width="8" stroke-dasharray="1400"/><text x="440" y="90" fill="#E5484D" font-size="30" font-weight="800">Plan G Rate Trajectory</text><text x="300" y="300" fill="#00B140" font-size="28" font-weight="800">Smarter 2027 Alternatives</text></svg>`},
+{t:20,m:'split',b:B1,h:`<div class="card" style="text-align:left"><img src="assets/allen-associates-logo.png" style="width:520px;display:block;margin-bottom:26px"><h1>ARRIC ALLEN</h1><p style="margin-top:18px" class="g">Licensed Specialist Since 1994</p><h3 style="margin-top:14px">Allen &amp; Associates Insurance Agency</h3></div>`},
+{t:30,m:'split',b:B1,h:`<div class="card"><div class="tag gbg">PAST</div><h2 style="margin-top:16px">Plan G = #1 Value</h2></div><div class="arrow" style="text-align:center">⬇</div><div class="card" style="border-color:var(--amber)"><div class="tag amber">⚠ 2027</div><h2 style="margin-top:16px">Risk Pool Overloaded</h2></div>`},
+{t:40,m:'split',b:B1b,h:`<div class="tag amber">HISTORY</div><h1>2015–2020: The Rise &amp; Fall of Plan F</h1>`},
+{t:50,m:'split',b:B1b,h:`<h3>MEDICARE PLAN F<br><span style="font-weight:600">(The Old "Cadillac" Plan)</span></h3><div class="big g">100%</div><div class="tag gbg">COVERED</div>`},
+{t:60,m:'full',b:B1b,h:`<div class="row"><div class="pill">$0 Deductible</div><div class="pill">$0 Coinsurance</div><div class="pill">$0 Copays</div></div><div class="arrow">⬇</div><svg viewBox="0 0 600 330" width="600"><path d="M60 300 A240 240 0 0 1 540 300" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="50"/><path class="draw" d="M60 300 A240 240 0 0 1 520 230" fill="none" stroke="#E5484D" stroke-width="50"/></svg><h2>Overutilization of Medical Services</h2>`},
+{t:70,m:'full',b:B1b,h:funnel('','Plan F Risk Pool<br><span style="font-size:36px">100% Funneled</span>','#F5A623')},
+{t:80,m:'full',b:B1b,h:`<div class="dcard" style="border-color:var(--red);background:#E5484D33;width:1100px"><h2 class="r">Plan F Risk Pool</h2><p>Adverse Selection (High-Cost Claims)</p></div><div class="arrow" style="color:var(--red)">⬇</div><h1 class="r">Skyrocketing Monthly Premiums for Everyone</h1>`},
+{t:90,m:'split',b:B2,h:`<div class="tag amber">MACRA Law (Jan 1, 2020)</div><div class="card" style="border-color:var(--red)"><h2>Plan F Closed to New 65+ Enrollees</h2></div><div class="arrow" style="text-align:center">⬇</div><div class="card"><h2 class="g">Plan G Becomes #1 Option</h2></div>`},
+{t:100,m:'split',b:B2,h:`<h1>Plan F</h1><h2 class="r">− Small Part B Deductible <span style="font-size:40px">(&lt;$300/yr)</span></h2><div style="height:4px;background:var(--navy)"></div><h1 class="g">= Plan G</h1>`},
+{t:110,m:'full',b:B2,h:funnel('Plan F (Closed)','Plan G<br><span style="font-size:34px">New Default GI Plan</span>','#E5484D')},
+{t:120,m:'full',b:B2,h:funnel('','Plan G','#E5484D')+`<div class="row"><div class="tag amber">Zero Health Questions Required</div><div class="arrow">➔</div><div class="tag rbg">Mandatory Acceptance into Plan G</div></div>`},
+{t:130,m:'full',b:B2,h:`<h2>Annual Rate Increases</h2><svg viewBox="0 0 1000 480" width="1000"><line x1="0" y1="420" x2="1000" y2="420" stroke="#fff" stroke-opacity=".4" stroke-width="3"/><rect class="growy" x="120" y="40" width="260" height="380" fill="#E5484D" rx="8"/><rect class="growy" x="620" y="250" width="260" height="170" fill="#00B140" rx="8"/></svg><div class="row" style="gap:200px"><h3 class="r">Plan G (Steepest Increases)</h3><h3 class="g">Plan N &amp; High-Deductible G<br><span style="font-size:30px">(Protected Risk Pools)</span></h3></div>`},
+{t:140,m:'split',b:B3,h:`<h2>Two Smarter 2027 Alternatives</h2><div class="card"><div class="tag gbg">OPTION 1</div><h2 style="margin-top:12px">Plan N</h2></div><div class="card"><div class="tag gbg">OPTION 2</div><h2 style="margin-top:12px">High-Deductible Plan G (GHD)</h2></div>`},
+{t:150,m:'split',b:B3,h:`<h2>MEDICARE SUPPLEMENT PLAN N</h2><div class="card"><p>✔️ 100% Part A Hospital Coverage</p></div><div class="card"><p>✔️ Same Small Part B Annual Deductible (&lt;$300)</p></div>`},
+{t:160,m:'split',b:B3,h:`<h2>The Plan N Trade-Off</h2><div class="card"><h2 class="g">Lower Monthly Premium</h2></div><div class="arrow" style="text-align:center">⇅</div><div class="card" style="border-color:var(--amber)"><h2>Up to $20 Doctor Visit Copay</h2></div>`},
+{t:170,m:'split',b:B3,h:`<h2>In Reality:</h2><div class="card"><p>• Typical Routine Visit Copay: <b class="g">Often just $12–$13</b></p></div><div class="card" style="border-color:var(--amber)"><p>• Emergency Room Copay: <b>$50</b> (Waived if admitted)</p></div>`},
+{t:180,m:'full',b:B3,h:`<h1 style="font-size:120px;text-align:center">WHAT ARE PART B<br><span class="a">EXCESS CHARGES?</span></h1>`},
+{t:190,m:'full',b:B3,h:`<div class="row"><div class="dcard" style="width:700px;border-color:var(--green)"><h3>Accepts Medicare Assignment</h3><div class="big g" style="font-size:140px;margin-top:20px">0%</div><p>Extra Billed</p></div><div class="dcard" style="width:700px;border-color:var(--amber)"><h3>Does Not Accept Assignment</h3><div class="big a" style="font-size:140px;margin-top:20px">+15%</div><p>Up to · Usually $10–$15</p></div></div>`},
+{t:200,m:'full',b:B3,h:`<svg viewBox="0 0 400 400" width="520"><circle cx="200" cy="200" r="160" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="60"/><circle cx="200" cy="200" r="160" fill="none" stroke="#00B140" stroke-width="60" stroke-dasharray="1005" stroke-dashoffset="1005" transform="rotate(-90 200 200)" style="animation:donut 2s .3s forwards"/><text x="200" y="230" text-anchor="middle" fill="#fff" font-size="100" font-weight="900">96%</text></svg><style>@keyframes donut{to{stroke-dashoffset:40}}</style><h2>of U.S. Doctors Accept Medicare Assignment</h2><div class="tag gbg">Zero Excess Charges Allowed</div>`},
+{t:210,m:'full',b:B3,h:`<h2>8 States Ban Excess Charges Entirely</h2><div style="text-align:center;max-width:1300px">${['CT','MA','MN','NY','OH','PA','RI','VT'].map(s=>`<span class="st">${s}</span>`).join('')}</div><h3 class="g">Excess Charges 100% Banned by Law</h3><p style="font-size:30px;opacity:.8">Connecticut • Massachusetts • Minnesota • New York • Ohio • Pennsylvania • Rhode Island • Vermont</p>`},
+{t:220,m:'split',b:B3,h:`<div style="font-size:200px;text-align:center">🛡️</div><h2 style="text-align:center">PLAN N</h2><div class="card"><p>Protected from Guaranteed Issue Adverse Selection</p><h2 class="g" style="margin-top:12px">= Stable Long-Term Rates</h2></div>`},
+{t:230,m:'split',b:B4,h:`<h2>HIGH-DEDUCTIBLE PLAN G (GHD)</h2><div class="big g" style="font-size:150px">~$3,000</div><h3>Annual Out-of-Pocket Maximum</h3>`},
+{t:240,m:'split',b:B4,h:`<h3>How a Medical Claim Gets Paid</h3><div style="display:flex;height:120px;border-radius:14px;overflow:hidden"><div class="grow" style="flex:80;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900">80%</div><div class="grow" style="flex:20;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;animation-delay:1.2s">20%</div></div><p><b class="bl">80%</b> Paid Immediately by Original Medicare</p><p><b class="g">You Only Pay the 20% Share</b> Capped at ~$3,000</p>`},
+{t:250,m:'full',b:B4,h:`<div class="tag amber">THE 10% RATE HIKE MATH</div><div class="row"><div class="dcard" style="width:720px;border-color:var(--red)"><h3>Standard Plan G ($220/mo)</h3><p style="margin-top:20px">10% hike =</p><div class="big r" style="font-size:130px">+$22<span style="font-size:50px">/mo</span></div></div><div class="dcard" style="width:720px;border-color:var(--green)"><h3>High-Deductible G ($65/mo)</h3><p style="margin-top:20px">10% hike =</p><div class="big g" style="font-size:130px">+$6.50<span style="font-size:50px">/mo</span></div></div></div>`},
+{t:260,m:'split',b:B4,outro:4.2,h:`<div class="tag amber">FREE 2027 MEDIGAP RATE COMPARISON GUIDE</div><h1>💬 Comment "GUIDE" Below</h1><p>🌐 allenandassociates.agency</p>`},
+];
+
+const TIM=[0.16, 7.36, 12.22, 19.9, 26.16, 31.52, 39.14, 47.48, 54.94, 62.44, 70.98, 77.54, 84.58, 92.0, 100.46, 108.26, 116.46, 122.42, 130.42, 136.98, 144.1, 151.86, 162.18, 170.16, 177.28, 184.1, 192.08];S.forEach((s,i)=>s.t=TIM[i]);
+const $=id=>document.getElementById(id);
+const ease=p=>p<=0?0:p>=1?1:p*p*(3-2*p);
+let cur=-1,shotT0=0;
+function put(el,html){el.className='';el.innerHTML=html;void el.offsetWidth;el.className='in';}
+function seek(el,dt){el.getAnimations({subtree:true}).forEach(a=>{a.pause();a.currentTime=Math.max(0,dt*1000);});}
+// tl: timeline time; src: source time of the take; shotStartTl: timeline time this shot appeared; cta: 0..1; cap: html
+window.setF=function(tl,src,shotStartTl,cta,cap){
+  let i=0;for(let k=0;k<S.length;k++)if(src>=S[k].t-0.01)i=k;
+  const s=S[i];
+  if(i!==cur){cur=i;
+    if(s.m==='full'){put($('fullIn'),s.h);}else{put($('right'),s.h);}
+    $('full').style.display=s.m==='full'?'block':'none';$('right').style.display=s.m==='full'?'none':'flex';
+    $('badge').innerHTML=s.b.replace(/^(\d+)/,'<b>$1</b>');}
+  const dt=tl-shotStartTl;
+  seek($('right'),dt);seek($('fullIn'),dt);
+  $('panel').style.opacity=ease(dt/0.25)*0.0+1;
+  $('cap').innerHTML=cap||'';
+  $('cta').style.opacity=cta;seek($('cta'),tl);
+};
+</script></body></html>

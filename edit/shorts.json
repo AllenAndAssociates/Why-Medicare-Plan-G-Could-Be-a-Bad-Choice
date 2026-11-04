@@ -1,0 +1,49 @@
+{
+  "plan-g-trap": {
+    "title": "The Plan G Trap",
+    "shots": [
+      [
+        1
+      ],
+      [
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    ]
+  },
+  "plan-n": {
+    "title": "Plan N: The Smarter Option",
+    "shots": [
+      [
+        1
+      ],
+      [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    ]
+  },
+  "high-deductible-g": {
+    "title": "High-Deductible Plan G",
+    "shots": [
+      [
+        1
+      ],
+      [
+        15
+      ],
+      [
+        24,
+        25,
+        26
+      ]
+    ]
+  }
+}
