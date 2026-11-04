@@ -149,6 +149,8 @@ window.setT=function(t){
   const p=ease((t-INTRO)/SLIDE);
   $('right').style.transform=`translateX(${(1-p)*100}%)`;$('divider').style.opacity=p;
   $('badge').innerHTML=s.b.replace(/^(\d+)/,'<b>$1</b>');
+  // keep the badge off Arric's head: on the right canvas in split mode, top-left on full-screen data shots
+  const bx=44+(1005-44)*p;$('badge').style.left=(bx*(1-fo)+44*fo)+'px';
   const oo=s.outro?ease((loc-s.outro)/0.6):0;$('outro').style.opacity=oo;
 };
 </script></body></html>
