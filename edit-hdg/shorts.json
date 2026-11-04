@@ -1,0 +1,43 @@
+{
+  "hdg-myth": {
+    "title": "The High Deductible Myth",
+    "shots": [
+      [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    ]
+  },
+  "original-medicare": {
+    "title": "Original Medicare Freedom",
+    "shots": [
+      [
+        4
+      ],
+      [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    ]
+  },
+  "100-dollar-math": {
+    "title": "The $100 Doctor Visit Math",
+    "shots": [
+      [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    ]
+  }
+}
